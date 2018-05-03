@@ -1,4 +1,11 @@
 
+[![Travis-CI Build
+Status](https://travis-ci.org/hrbrmstr/fileio.svg?branch=master)](https://travis-ci.org/hrbrmstr/fileio)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/hrbrmstr/fileio?branch=master&svg=true)](https://ci.appveyor.com/project/hrbrmstr/fileio)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/hrbrmstr/fileio/master.svg)](https://codecov.io/github/hrbrmstr/fileio?branch=master)
+
 # fileio
 
 Post Files, Text or R Data to ‘file.io’
@@ -39,7 +46,7 @@ fi_post(system.file("extdat", "tst.txt", package = "fileio"))
 ```
 
     ##   success    key                   link  expiry
-    ## 1    TRUE JLmMCb https://file.io/JLmMCb 14 days
+    ## 1    TRUE YCICRF https://file.io/YCICRF 14 days
 
 ### Post text
 
@@ -48,7 +55,7 @@ fi_text("Hi Noam!")
 ```
 
     ##   success    key                   link  expiry
-    ## 1    TRUE L3KlLl https://file.io/L3KlLl 14 days
+    ## 1    TRUE NqrRmT https://file.io/NqrRmT 14 days
 
 ### Post R data
 
@@ -63,4 +70,10 @@ fi_data(
 ```
 
     ##   success    key                   link  expiry                                              filename
-    ## 1    TRUE QDMCj6 https://file.io/QDMCj6 14 days d05b2d68-b2c7-47c4-8869-50328f70fe1f152ed2b346351.rds
+    ## 1    TRUE fhz8wh https://file.io/fhz8wh 14 days ddea80f6-6b8b-4bf5-8ec4-2c4f57c73357154553c34b801.rds
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.

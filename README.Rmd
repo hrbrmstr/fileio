@@ -2,6 +2,10 @@
 output: rmarkdown::github_document
 ---
 
+[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/fileio.svg?branch=master)](https://travis-ci.org/hrbrmstr/fileio) 
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/hrbrmstr/fileio?branch=master&svg=true)](https://ci.appveyor.com/project/hrbrmstr/fileio) 
+[![Coverage Status](https://img.shields.io/codecov/c/github/hrbrmstr/fileio/master.svg)](https://codecov.io/github/hrbrmstr/fileio?branch=master)
+
 # fileio
 
 Post Files, Text or R Data to 'file.io'
