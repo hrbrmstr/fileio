@@ -1,7 +1,7 @@
-#' Post a file to file.io
+#' Post data to file.io
 #'
 #' @md
-#' @param path path to a file
+#' @param text single element character vector
 #' @param expires defaults to 14 days (`14d`). Must be a positive integer which,
 #'        by default, represents the number of days until the file will be deleted.
 #'        If you follow it with `w`, it will be the number of weeks; `m` for months;
@@ -11,22 +11,17 @@
 #' @export
 #' @references <https://www.file.io/>
 #' @examples
-#' fi_post(system.file("extdat", "tst.txt", package = "fileio"))
-fi_post <- function(path, expires="14d") {
+#' fi_data("Hi Noam!")
+fi_data <- function(text, expires="14d") {
 
   if (!grepl("[[:digit:]]+[wdmy]", expires[1])) {
     stop("'expires' must be either an integer or an integer followed by one of  [dwmy]")
   }
 
-  path <- path.expand(path[1])
-  path <- normalizePath(path)
-
-  if (!file.exists(path)) stop("File not found!", call.=FALSE)
-
   httr::POST(
     url = "https://file.io",
     encode = "multipart",
-    body = list(file=httr::upload_file(path)),
+    body = list(text = text),
   ) -> res
 
   httr::stop_for_status(res)
