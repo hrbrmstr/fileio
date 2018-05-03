@@ -1,0 +1,41 @@
+---
+output: rmarkdown::github_document
+---
+
+# fileio
+
+Post Files to 'file.io'
+
+## Description
+
+Post Files to 'file.io'!
+
+## What's Inside The Tin
+
+The following functions are implemented:
+
+- `fi_post`:	Post a file!
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/fileio")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+## Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(fileio)
+
+# current verison
+packageVersion("fileio")
+
+```
+
+```{r}
+fi_post(system.file("extdat", "tst.txt", package = "fileio"))
+```
