@@ -59,6 +59,6 @@ fi_post_rdata <- function(robj, filename = uuid::UUIDgenerate(), expires = "14d"
 
 }
 
-#' @noRd
+#' @rdname fi_post_data
 #' @export
 fi_data <- fi_post_rdata

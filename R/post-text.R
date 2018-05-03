@@ -41,6 +41,6 @@ fi_post_text <- function(text, expires = "14d") {
 }
 
 
-#' @noRd
+#' @rdname fi_post_text
 #' @export
 fi_text <- fi_post_text

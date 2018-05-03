@@ -47,6 +47,6 @@ fi_post_file <- function(path, expires = "14d") {
 
 }
 
-#' @noRd
+#' @rdname fi_post_file
 #' @export
 fi_post <- fi_post_file

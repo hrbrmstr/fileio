@@ -5,7 +5,8 @@ test_that("we can post a file", {
 
   expect_true(x$success)
 
-  tmp <- readLines(con <- url(x$link), warn = FALSE)
+  con <- url(x$link)
+  tmp <- readLines(con, warn = FALSE)
   close(con)
 
   expect_equal(tmp, "Hi Noam!")
@@ -20,7 +21,8 @@ test_that("we can post text", {
 
   expect_true(x$success)
 
-  tmp <- readLines(con <- url(x$link), warn = FALSE)
+  con <- url(x$link)
+  tmp <- readLines(con, warn = FALSE)
   close(con)
 
   expect_equal(tmp, "Hi Noam!")
@@ -41,7 +43,8 @@ test_that("we can post arbitrary R data", {
 
   expect_true(x$success)
 
-  tmp <- readRDS(con <- url(x$link))
+  con <- url(x$link)
+  tmp <- readRDS(con)
   close(con)
 
   expect_true(all(names(tmp) %in% c("iris", "message", "mtcars")))

@@ -35,7 +35,10 @@ fi_post_rdata(
     iris = iris,
     message = "Hi Noam!"
   )
-)
+) -> x
+
+tmp <- readRDS(con <- url(x$link))
+close(con)
 }
 \references{
 \url{https://www.file.io/}
