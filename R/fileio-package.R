@@ -1,8 +1,8 @@
-#' Post files to file.io
+#' Post Files, Text or R Data to 'file.io'
 #'
 #' @md
 #' @name fileio
 #' @docType package
 #' @author Bob Rudis (bob@@rud.is)
-#' @import httr
+#' @import httr uuid
 NULL

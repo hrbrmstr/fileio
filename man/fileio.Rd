@@ -4,9 +4,9 @@
 \name{fileio}
 \alias{fileio}
 \alias{fileio-package}
-\title{Post files to file.io}
+\title{Post Files, Text or R Data to 'file.io'}
 \description{
-Post files to file.io
+Post Files, Text or R Data to 'file.io'
 }
 \author{
 Bob Rudis (bob@rud.is)

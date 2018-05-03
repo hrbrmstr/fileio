@@ -2,4 +2,6 @@
 
 export(fi_data)
 export(fi_post)
+export(fi_text)
 import(httr)
+import(uuid)

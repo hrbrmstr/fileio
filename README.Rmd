@@ -4,17 +4,19 @@ output: rmarkdown::github_document
 
 # fileio
 
-Post Files to 'file.io'
+Post Files, Text or R Data to 'file.io'
 
 ## Description
 
-Post Files to 'file.io'!
+Post Files, Text or R Data to 'file.io'.
 
 ## What's Inside The Tin
 
 The following functions are implemented:
 
-- `fi_post`:	Post a file!
+- `fi_data`:	Post an R object to file.io
+- `fi_post`:	Post a file to file.io
+- `fi_text`:	Post text to file.io
 
 ## Installation
 
@@ -36,6 +38,27 @@ packageVersion("fileio")
 
 ```
 
+### Post a file
+
 ```{r}
 fi_post(system.file("extdat", "tst.txt", package = "fileio"))
+```
+
+### Post text
+
+```{r}
+fi_test("Hi Noam!")
+```
+
+
+### Post R data
+
+```{r}
+fi_data(
+  list(
+    mtcars = mtcars,
+    iris = iris,
+    message = "Hi Noam!"
+  )
+)
 ```

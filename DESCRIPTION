@@ -1,6 +1,6 @@
 Package: fileio
 Type: Package
-Title: Post Files to 'file.io'
+Title: Post Files, Text or R Data to 'file.io'
 Version: 0.1.0
 Date: 2018-05-03
 Authors@R: c(
@@ -8,7 +8,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5670-2640"))
   )
 Maintainer: Bob Rudis <bob@rud.is>
-Description: Post files to 'file.io' <file.io>.
+Description: Post files, text or R data to 'file.io' <file.io>.
 URL: https://github.com/hrbrmstr/fileio
 BugReports: https://github.com/hrbrmstr/fileio/issues
 Encoding: UTF-8
@@ -19,5 +19,6 @@ Suggests:
 Depends:
     R (>= 3.2.0)
 Imports:
-    httr
+    httr,
+    uuid
 RoxygenNote: 6.0.1.9000
