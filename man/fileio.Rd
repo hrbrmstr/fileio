@@ -6,7 +6,12 @@
 \alias{fileio-package}
 \title{Post Files, Text or R Data to 'file.io'}
 \description{
-Post Files, Text or R Data to 'file.io'
+The 'file.io' <file.io> service enables ephemeral, convenient
+and anonymous file sharing. Methods are provided to upload existing files,
+R data objects or text messages to this service.
+}
+\references{
+\href{https://www.file.io/privacy.html}{file.io privacy policy}
 }
 \author{
 Bob Rudis (bob@rud.is)

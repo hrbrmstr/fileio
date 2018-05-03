@@ -1,14 +1,16 @@
 Package: fileio
 Type: Package
-Title: Post Files, Text or R Data to 'file.io'
-Version: 0.1.0
+Title: Ephemeral File, Text or R Data Sharing with 'file.io'
+Version: 0.2.0
 Date: 2018-05-03
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
            comment = c(ORCID = "0000-0001-5670-2640"))
   )
 Maintainer: Bob Rudis <bob@rud.is>
-Description: Post files, text or R data to 'file.io' <file.io>.
+Description: The 'file.io' <file.io> service enables ephemeral, convenient
+    and anonymous file sharing. Methods are provided to upload existing files,
+    R data objects or text messages to this service.
 URL: https://github.com/hrbrmstr/fileio
 BugReports: https://github.com/hrbrmstr/fileio/issues
 Encoding: UTF-8

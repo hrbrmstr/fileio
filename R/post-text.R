@@ -12,8 +12,10 @@
 #' @references <https://www.file.io/>
 #' @note There is a 5GB per file limit for the free version.
 #' @examples
-#' fi_data("Hi Noam!")
-fi_text <- function(text, expires="14d") {
+#' x <- fi_post_text("Hi Noam!", expires = "1d")
+#' readLines(con <- url(x$link), warn = FALSE)
+#' close(con)
+fi_post_text <- function(text, expires = "14d") {
 
   if (!grepl("[[:digit:]]+[wdmy]", expires[1])) {
     stop("'expires' must be either an integer or an integer followed by one of [dwmy]")
@@ -23,13 +25,14 @@ fi_text <- function(text, expires="14d") {
     url = "https://file.io",
     encode = "multipart",
     body = list(text = text),
+    httr::user_agent(FILEIO_USER_AGENT)
   ) -> res
 
   httr::stop_for_status(res)
 
   res <- httr::content(res)
 
-  res <- as.data.frame(res, stringsAsFactors=FALSE)
+  res <- as.data.frame(res, stringsAsFactors = FALSE)
 
   class(res) <- c("tbl_df", "tbl", "data.frame")
 
@@ -37,3 +40,7 @@ fi_text <- function(text, expires="14d") {
 
 }
 
+
+#' @noRd
+#' @export
+fi_text <- fi_post_text

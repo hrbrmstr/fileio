@@ -8,19 +8,21 @@ Status](https://img.shields.io/codecov/c/github/hrbrmstr/fileio/master.svg)](htt
 
 # fileio
 
-Post Files, Text or R Data to ‘file.io’
+Ephemeral File, Text or R Data Sharing with ‘file.io’
 
 ## Description
 
-Post Files, Text or R Data to ‘file.io’.
+The ‘file.io’ \<file.io\> service enables ephemeral, convenient and
+anonymous file sharing. Methods are provided to upload existing files, R
+data objects or text messages to this service.
 
 ## What’s Inside The Tin
 
 The following functions are implemented:
 
-  - `fi_data`: Post an R object to file.io
-  - `fi_post`: Post a file to file.io
-  - `fi_text`: Post text to file.io
+  - `fi_post_file`: Post a file to file.io
+  - `fi_post_rdata`: Post an R object to file.io
+  - `fi_post_text`: Post text to file.io
 
 ## Installation
 
@@ -37,40 +39,71 @@ library(fileio)
 packageVersion("fileio")
 ```
 
-    ## [1] '0.1.0'
+    ## [1] '0.2.0'
 
 ### Post a file
 
 ``` r
-fi_post(system.file("extdat", "tst.txt", package = "fileio"))
+(x <- fi_post_file(system.file("extdat", "tst.txt", package = "fileio")))
 ```
 
     ##   success    key                   link  expiry
-    ## 1    TRUE YCICRF https://file.io/YCICRF 14 days
+    ## 1    TRUE ouNU6O https://file.io/ouNU6O 14 days
+
+``` r
+readLines(con <- url(x$link), warn = FALSE)
+```
+
+    ## [1] "Hi Noam!"
+
+``` r
+close(con)
+```
 
 ### Post text
 
 ``` r
-fi_text("Hi Noam!")
+(x <- fi_post_text("Hi Noam!", "2d"))
 ```
 
     ##   success    key                   link  expiry
-    ## 1    TRUE NqrRmT https://file.io/NqrRmT 14 days
+    ## 1    TRUE lWCpV2 https://file.io/lWCpV2 14 days
+
+``` r
+readLines(con <- url(x$link), warn = FALSE)
+```
+
+    ## [1] "Hi Noam!"
+
+``` r
+close(con)
+```
 
 ### Post R data
 
 ``` r
-fi_data(
+fi_post_rdata(
   list(
     mtcars = mtcars,
     iris = iris,
     message = "Hi Noam!"
   )
+) -> x
+
+str(
+  readRDS(con <- url(x$link)), 
+  1
 )
 ```
 
-    ##   success    key                   link  expiry                                              filename
-    ## 1    TRUE fhz8wh https://file.io/fhz8wh 14 days ddea80f6-6b8b-4bf5-8ec4-2c4f57c73357154553c34b801.rds
+    ## List of 3
+    ##  $ mtcars :'data.frame': 32 obs. of  11 variables:
+    ##  $ iris   :'data.frame': 150 obs. of  5 variables:
+    ##  $ message: chr "Hi Noam!"
+
+``` r
+close(con)
+```
 
 ## Code of Conduct
 

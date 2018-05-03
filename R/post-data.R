@@ -17,14 +17,17 @@
 #' @export
 #' @references <https://www.file.io/>
 #' @examples
-#' fi_data(
+#' fi_post_rdata(
 #'   list(
 #'     mtcars = mtcars,
 #'     iris = iris,
 #'     message = "Hi Noam!"
 #'   )
-#' )
-fi_data <- function(robj, filename = uuid::UUIDgenerate(), expires="14d") {
+#' ) -> x
+#'
+#' tmp <- readRDS(con <- url(x$link))
+#' close(con)
+fi_post_rdata <- function(robj, filename = uuid::UUIDgenerate(), expires = "14d") {
 
   if (!grepl("[[:digit:]]+[wdmy]", expires[1])) {
     stop("'expires' must be either an integer or an integer followed by one of [dwmy]")
@@ -38,14 +41,15 @@ fi_data <- function(robj, filename = uuid::UUIDgenerate(), expires="14d") {
   httr::POST(
     url = "https://file.io",
     encode = "multipart",
-    body = list(file=httr::upload_file(tf)),
+    body = list(file = httr::upload_file(tf)),
+    httr::user_agent(FILEIO_USER_AGENT)
   ) -> res
 
   httr::stop_for_status(res)
 
   res <- httr::content(res)
 
-  res <- as.data.frame(res, stringsAsFactors=FALSE)
+  res <- as.data.frame(res, stringsAsFactors = FALSE)
 
   class(res) <- c("tbl_df", "tbl", "data.frame")
 
@@ -55,3 +59,6 @@ fi_data <- function(robj, filename = uuid::UUIDgenerate(), expires="14d") {
 
 }
 
+#' @noRd
+#' @export
+fi_data <- fi_post_rdata

@@ -1,0 +1,1 @@
+FILEIO_USER_AGENT <- "fileio R package <https://github.com/hrbrmstr/fileio>"
