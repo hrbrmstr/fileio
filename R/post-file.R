@@ -13,7 +13,9 @@
 #' @note There is a 5GB per file limit for the free version.
 #' @examples
 #' x <- fi_post_file(system.file("extdat", "tst.txt", package = "fileio"))
-#' readLines(con <- url(x$link), warn = FALSE)
+#'
+#' con <- url(x$link)
+#' readLines(con, warn = FALSE)
 #' close(con)
 fi_post_file <- function(path, expires = "14d") {
 

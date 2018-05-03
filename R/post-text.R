@@ -13,7 +13,8 @@
 #' @note There is a 5GB per file limit for the free version.
 #' @examples
 #' x <- fi_post_text("Hi Noam!", expires = "1d")
-#' readLines(con <- url(x$link), warn = FALSE)
+#' con <- url(x$link)
+#' readLines(con, warn = FALSE)
 #' close(con)
 fi_post_text <- function(text, expires = "14d") {
 

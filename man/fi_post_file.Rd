@@ -2,9 +2,12 @@
 % Please edit documentation in R/post-file.R
 \name{fi_post_file}
 \alias{fi_post_file}
+\alias{fi_post}
 \title{Post a file to file.io}
 \usage{
 fi_post_file(path, expires = "14d")
+
+fi_post(path, expires = "14d")
 }
 \arguments{
 \item{path}{path to a file (it will be \code{\link[=path.expand]{path.expand()}}ed and \code{\link[=normalizePath]{normalizePath()}}'d)}
@@ -26,7 +29,9 @@ There is a 5GB per file limit for the free version.
 }
 \examples{
 x <- fi_post_file(system.file("extdat", "tst.txt", package = "fileio"))
-readLines(con <- url(x$link), warn = FALSE)
+
+con <- url(x$link)
+readLines(con, warn = FALSE)
 close(con)
 }
 \references{

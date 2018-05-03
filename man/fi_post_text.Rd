@@ -2,9 +2,12 @@
 % Please edit documentation in R/post-text.R
 \name{fi_post_text}
 \alias{fi_post_text}
+\alias{fi_text}
 \title{Post text to file.io}
 \usage{
 fi_post_text(text, expires = "14d")
+
+fi_text(text, expires = "14d")
 }
 \arguments{
 \item{text}{single element character vector}
@@ -26,7 +29,8 @@ There is a 5GB per file limit for the free version.
 }
 \examples{
 x <- fi_post_text("Hi Noam!", expires = "1d")
-readLines(con <- url(x$link), warn = FALSE)
+con <- url(x$link)
+readLines(con, warn = FALSE)
 close(con)
 }
 \references{

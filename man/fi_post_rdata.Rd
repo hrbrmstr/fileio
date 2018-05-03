@@ -2,9 +2,12 @@
 % Please edit documentation in R/post-data.R
 \name{fi_post_rdata}
 \alias{fi_post_rdata}
+\alias{fi_data}
 \title{Post an R object to file.io}
 \usage{
 fi_post_rdata(robj, filename = uuid::UUIDgenerate(), expires = "14d")
+
+fi_data(robj, filename = uuid::UUIDgenerate(), expires = "14d")
 }
 \arguments{
 \item{robj}{an R object}
@@ -37,7 +40,8 @@ fi_post_rdata(
   )
 ) -> x
 
-tmp <- readRDS(con <- url(x$link))
+con <- url(x$link)
+tmp <- readRDS(con)
 close(con)
 }
 \references{

@@ -25,7 +25,8 @@
 #'   )
 #' ) -> x
 #'
-#' tmp <- readRDS(con <- url(x$link))
+#' con <- url(x$link)
+#' tmp <- readRDS(con)
 #' close(con)
 fi_post_rdata <- function(robj, filename = uuid::UUIDgenerate(), expires = "14d") {
 
@@ -59,6 +60,6 @@ fi_post_rdata <- function(robj, filename = uuid::UUIDgenerate(), expires = "14d"
 
 }
 
-#' @rdname fi_post_data
+#' @rdname fi_post_rdata
 #' @export
 fi_data <- fi_post_rdata
