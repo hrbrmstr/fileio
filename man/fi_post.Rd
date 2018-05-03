@@ -21,6 +21,9 @@ and expiry
 \description{
 Post a file to file.io
 }
+\note{
+There is a 5GB per file limit for the free version.
+}
 \examples{
 fi_post(system.file("extdat", "tst.txt", package = "fileio"))
 }

@@ -10,12 +10,13 @@
 #'         and expiry
 #' @export
 #' @references <https://www.file.io/>
+#' @note There is a 5GB per file limit for the free version.
 #' @examples
 #' fi_data("Hi Noam!")
 fi_text <- function(text, expires="14d") {
 
   if (!grepl("[[:digit:]]+[wdmy]", expires[1])) {
-    stop("'expires' must be either an integer or an integer followed by one of  [dwmy]")
+    stop("'expires' must be either an integer or an integer followed by one of [dwmy]")
   }
 
   httr::POST(

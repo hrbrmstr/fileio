@@ -13,14 +13,21 @@
 #'        and, `y` for years.
 #' @return a data frame (tibble) with the success status, download key, download link
 #'         and expiry
+#' @note There is a 5GB per file limit for the free version.
 #' @export
 #' @references <https://www.file.io/>
 #' @examples
-#' fi_data("Hi Noam!")
+#' fi_data(
+#'   list(
+#'     mtcars = mtcars,
+#'     iris = iris,
+#'     message = "Hi Noam!"
+#'   )
+#' )
 fi_data <- function(robj, filename = uuid::UUIDgenerate(), expires="14d") {
 
   if (!grepl("[[:digit:]]+[wdmy]", expires[1])) {
-    stop("'expires' must be either an integer or an integer followed by one of  [dwmy]")
+    stop("'expires' must be either an integer or an integer followed by one of [dwmy]")
   }
 
   tf <- tempfile(filename, fileext = ".rds")

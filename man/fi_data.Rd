@@ -25,8 +25,17 @@ and expiry
 This will take an R object (which can be a list of serializable objects) and
 create an RDS file from it and send it off to file.io.
 }
+\note{
+There is a 5GB per file limit for the free version.
+}
 \examples{
-fi_data("Hi Noam!")
+fi_data(
+  list(
+    mtcars = mtcars,
+    iris = iris,
+    message = "Hi Noam!"
+  )
+)
 }
 \references{
 \url{https://www.file.io/}

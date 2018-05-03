@@ -10,12 +10,13 @@
 #'         and expiry
 #' @export
 #' @references <https://www.file.io/>
+#' @note There is a 5GB per file limit for the free version.
 #' @examples
 #' fi_post(system.file("extdat", "tst.txt", package = "fileio"))
 fi_post <- function(path, expires="14d") {
 
   if (!grepl("[[:digit:]]+[wdmy]", expires[1])) {
-    stop("'expires' must be either an integer or an integer followed by one of  [dwmy]")
+    stop("'expires' must be either an integer or an integer followed by one of [dwmy]")
   }
 
   path <- path.expand(path[1])
