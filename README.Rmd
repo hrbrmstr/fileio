@@ -47,9 +47,8 @@ fi_post(system.file("extdat", "tst.txt", package = "fileio"))
 ### Post text
 
 ```{r}
-fi_test("Hi Noam!")
+fi_text("Hi Noam!")
 ```
-
 
 ### Post R data
 
