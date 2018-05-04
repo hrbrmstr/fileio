@@ -28,10 +28,7 @@ Post text to file.io
 There is a 5GB per file limit for the free version.
 }
 \examples{
-x <- fi_post_text("Hi Noam!", expires = "1d")
-con <- url(x$link)
-readLines(con, warn = FALSE)
-close(con)
+fi_post_text("Hi Noam!", expires = "1d")
 }
 \references{
 \url{https://www.file.io/}

@@ -23,11 +23,7 @@
 #'     iris = iris,
 #'     message = "Hi Noam!"
 #'   )
-#' ) -> x
-#'
-#' con <- url(x$link)
-#' tmp <- readRDS(con)
-#' close(con)
+#' )
 fi_post_rdata <- function(robj, filename = uuid::UUIDgenerate(), expires = "14d") {
 
   if (!grepl("[[:digit:]]+[wdmy]", expires[1])) {

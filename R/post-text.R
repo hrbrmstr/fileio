@@ -12,10 +12,7 @@
 #' @references <https://www.file.io/>
 #' @note There is a 5GB per file limit for the free version.
 #' @examples
-#' x <- fi_post_text("Hi Noam!", expires = "1d")
-#' con <- url(x$link)
-#' readLines(con, warn = FALSE)
-#' close(con)
+#' fi_post_text("Hi Noam!", expires = "1d")
 fi_post_text <- function(text, expires = "14d") {
 
   if (!grepl("[[:digit:]]+[wdmy]", expires[1])) {

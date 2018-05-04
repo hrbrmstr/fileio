@@ -28,11 +28,7 @@ Post a file to file.io
 There is a 5GB per file limit for the free version.
 }
 \examples{
-x <- fi_post_file(system.file("extdat", "tst.txt", package = "fileio"))
-
-con <- url(x$link)
-readLines(con, warn = FALSE)
-close(con)
+fi_post_file(system.file("extdat", "tst.txt", package = "fileio"))
 }
 \references{
 \url{https://www.file.io/}
